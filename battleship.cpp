@@ -35,11 +35,14 @@ bool match(ship myShip, location mySpot){
 
 
 
-void initialize(ship ships[]) {
+void initialize(ship myFleet[]) {
     // places all ships in -1 X location to signify
     // that the ship is not deployed
-    for (int i=0; i<6; ++i)
-         ships[i] = -1;
+    for (int i=0; i<6; ++i) {
+        myFleet[i].loc.x = -1;
+        myFleet[i].loc.y = -1;
+    }
+
  }
 
 
@@ -51,6 +54,9 @@ location pick() {
     int y = rand() % 5 + 1;
 
     switch (y) {
+        case -1:
+            mySpot.y = 'X';
+            break;
         case 1:
             mySpot.y = 'a';
             break;
@@ -106,12 +112,21 @@ void printShip(ship myShip) {
     else
         cout << "The ship was sunk!" << endl;
         }
+//ship myFleet[FLEET_SIZE]
 
 
+void printFleet(const ship myFleet[]) {
+    for (int i = 0; i < 6; ++i)
+        cout << "The ship is at: " << myFleet[i].loc.x  << myFleet[i].loc.y << endl;
+        cout << "Status of ship: ";
+        if (myFleet[i].sunk == 0)
+            cout << "The ship is still alive!" << endl;
+        else
+            cout << "The ship was sunk!" << endl;
+}
 
-//void printFleet(const ship[]);
-//    // prints the locations of all the ships and
-//    // whether they are sunk
+    // prints the locations of all the ships and
+    // whether they are sunk
 
  
  
