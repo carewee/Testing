@@ -1,5 +1,6 @@
 // Carrie Hadley
 // March, 2015
+// Functions
 
 #include <iostream>
 #include "battleship.h"
@@ -34,10 +35,13 @@ bool match(ship myShip, location mySpot){
 
 
 
-//void initialize(ship[]) {
-//    // places all ships in -1 X location to signify
-//    // that the ship is not deployed
-// }
+void initialize(ship[]) {
+    for (int i=0; i<6; ++i)
+        ship[i] = -1;
+    // places all ships in -1 X location to signify
+    // that the ship is not deployed
+    //assigning -1 to all ship's locations in myFleet
+ }
 
 
 

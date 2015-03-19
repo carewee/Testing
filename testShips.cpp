@@ -52,7 +52,7 @@ int main(){
     // checking fleet functions
 
     
-    /*
+
      ship myFleet[FLEET_SIZE];
      
      initialize(myFleet); //assigning -1 to all ship's locations in myFleet
@@ -70,7 +70,7 @@ int main(){
      cout << "at least one ship is not sunk\n";
      else
      cout << "all ships are sunk\n";
-     */
+
 }
 
 
