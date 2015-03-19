@@ -10,9 +10,9 @@ using std::cout; using std::cin; using std::endl;
 
 
 bool match(ship myShip, location mySpot){
-// returns true if this location matches
-// the location of the ship
-// returns false otherwise
+    // returns true if this location matches
+    // the location of the ship
+    // returns false otherwise
 
     if (myShip.loc.x == mySpot.x && myShip.loc.y == mySpot.y)
         return true;
@@ -22,16 +22,18 @@ bool match(ship myShip, location mySpot){
 
 
 
-//int check(const ship[], location){
+int check(ship myFleet[], location mySpot){
+    // returns the index of element of the array
+    // that matches the location
+    // returns -1 if none do
+    // uses match()
+    for (int i = 0; i < 6; ++i)
+        if (match(myFleet[i], location) == true)
+            return i;
+        else
+            return -1;
 
-//    // returns the index of element of the array
-//    // that matches the location
-//    // returns -1 if none do
-//    // uses match()
-
-//if (match(ship, location) == true)
-
-// }
+ }
 
 
 
@@ -77,9 +79,14 @@ location pick() {
 }
 
 
-//void deploy(ship[]) {
+void deploy(ship myFleet[]) {
 //    // places an array of battleships in
 //    // random locations in the ocean
+    for (int i = 0; i < 6; ++i){
+        tmp = check(pick());
+        if (tmp != -1)
+            myFleet[i] = tmp;
+    }
 
 /*
  The pseudocode for deploy()is as follows:
@@ -94,7 +101,7 @@ location pick() {
  the ship to "not sunk"
  increment the number of the deployed ships
  */
-// }
+ }
 
  
  
@@ -115,18 +122,18 @@ void printShip(ship myShip) {
 //ship myFleet[FLEET_SIZE]
 
 
-void printFleet(const ship myFleet[]) {
-    for (int i = 0; i < 6; ++i)
+void printFleet(ship myFleet[]) {
+    // prints the locations of all the ships and
+    // whether they are sunk
+    for (int i = 0; i < 6; ++i) {
         cout << "The ship is at: " << myFleet[i].loc.x  << myFleet[i].loc.y << endl;
         cout << "Status of ship: ";
         if (myFleet[i].sunk == 0)
             cout << "The ship is still alive!" << endl;
         else
             cout << "The ship was sunk!" << endl;
+    }
 }
-
-    // prints the locations of all the ships and
-    // whether they are sunk
 
  
  
