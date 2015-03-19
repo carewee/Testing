@@ -35,12 +35,11 @@ bool match(ship myShip, location mySpot){
 
 
 
-void initialize(ship[]) {
-    for (int i=0; i<6; ++i)
-        ship[i] = -1;
+void initialize(ship ships[]) {
     // places all ships in -1 X location to signify
     // that the ship is not deployed
-    //assigning -1 to all ship's locations in myFleet
+    for (int i=0; i<6; ++i)
+         ships[i] = -1;
  }
 
 
