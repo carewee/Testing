@@ -27,12 +27,11 @@ int check(ship myFleet[], location mySpot){
     // that matches the location
     // returns -1 if none do
     // uses match()
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 0; i < 6; ++i)
         if (match(myFleet[i], mySpot) == true)
             return i;
-        else
-            return -1;
-    }
+    return -1;
+
  }
 
 
