@@ -29,7 +29,7 @@ int main(){
     
     
 
-//     checking ship functions
+    // checking ship functions
     
 
      ship myShip;
