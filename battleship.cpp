@@ -29,7 +29,7 @@ int check(const ship myFleet[], location mySpot){
     // returns -1 if none do
     
     for (int i = 0; i <= FLEET_SIZE; ++i)
-        if (match(myFleet[i], mySpot) == true) {
+        if (match(myFleet[i], mySpot)) {
             return i;
             break;
         }
