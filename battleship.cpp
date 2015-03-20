@@ -83,10 +83,15 @@ location pick() {
 void deploy(ship myFleet[]) {
 //    // places an array of battleships in
 //    // random locations in the ocean
-    for (int i = 0; i < 6; ++i){
-        tmp = check(pick());
-        if (tmp != -1)
-            myFleet[i] = tmp;
+    int i = 0;
+    while (i < 6) {
+        location mySpot = pick();
+        int tmp = check(&myFleet[FLEET_SIZE], mySpot);
+        if (tmp == -1) {
+            myFleet[tmp] = {mySpot};
+            ++i;
+        }
+        
     }
 
 /*
@@ -120,7 +125,6 @@ void printShip(ship myShip) {
     else
         cout << "The ship was sunk!" << endl;
         }
-//ship myFleet[FLEET_SIZE]
 
 
 void printFleet(ship myFleet[]) {
@@ -137,16 +141,20 @@ void printFleet(ship myFleet[]) {
 }
 
  
- 
 
 // BATTLE FUNCTIONS
 
  
-//bool operational(const ship[]) {
-    // returns true if at least one ship in the array
-    // is not sunk
-// }
- 
+bool operational(ship myFleet[]) {
+    //     returns true if at least one ship in the array
+    //     is not sunk
+    for (int i = 0; i < 6; ++i) {
+        if (myFleet[i].loc.x != -1 && myFleet[i].loc.y != -1)
+            return true;
+    }
+    return false;
+ }
+
  
 // 
 location fire() {
