@@ -28,10 +28,9 @@ int check(const ship myFleet[], location mySpot){
     // that matches the location
     // returns -1 if none do
     
-    for (int i = 0; i <= FLEET_SIZE; ++i)
+    for (int i = 0; i < FLEET_SIZE; ++i)
         if (match(myFleet[i], mySpot)) {
             return i;
-            break;
         }
     return -1;
 
@@ -42,7 +41,7 @@ void initialize(ship myFleet[]) {
     // places all ships in -1 X location to signify
     // that the ship is not deployed
     
-    for (int i=0; i <= FLEET_SIZE; ++i) {
+    for (int i=0; i < FLEET_SIZE; ++i) {
         myFleet[i].loc.x = -1;
         myFleet[i].loc.y = 'X';
     }
@@ -84,9 +83,9 @@ void deploy(ship myFleet[]) {
     // random locations in the ocean
     
     int i = 0;
-    while (i <= FLEET_SIZE) {
+    while (i < FLEET_SIZE) {
         location mySpot = pick();
-        int tmp = check(&myFleet[FLEET_SIZE], mySpot);
+        int tmp = check(myFleet, mySpot);
         if (tmp == -1) {
             myFleet[i].loc = mySpot;
             myFleet[i].sunk = false;
@@ -116,7 +115,7 @@ void printShip(ship myShip) {
 void printFleet(ship const myFleet[]) {
     // prints the locations of all the ships and whether they are sunk
     
-    for (int i = 0; i <= FLEET_SIZE; ++i) {
+    for (int i = 0; i < FLEET_SIZE; ++i) {
         printShip(myFleet[i]);
     }
 }
@@ -130,7 +129,7 @@ void printFleet(ship const myFleet[]) {
 bool operational(ship const myFleet[]) {
     // returns true if at least one ship in the array is not sunk
 
-    for (int i = 0; i <= FLEET_SIZE; ++i) {
+    for (int i = 0; i < FLEET_SIZE; ++i) {
         if (myFleet[i].loc.x != -1 && myFleet[i].loc.y != -1)
             return true;
     }
