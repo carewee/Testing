@@ -90,13 +90,14 @@ void deploy(ship myFleet[]) {
         int tmp = check(&myFleet[FLEET_SIZE], mySpot);
         if (tmp == -1) {
             myFleet[tmp] = {mySpot};
+            myFleet[i].sunk = false;
             ++i;
         }
     // !! STILL NEED TO ADD STATUS OF THE SHIP BEING "not sunk" !!
     }
  }
 
- 
+
  
  
 // DISPLAY FUNCTIONS
@@ -107,7 +108,7 @@ void printShip(ship myShip) {
 
     cout << "The ship is at: " << myShip.loc.x  << myShip.loc.y << endl;
     cout << "Status of ship: ";
-    if (myShip.sunk == 0)
+    if (myShip.sunk == false)
         cout << "The ship is still alive!" << endl;
     else
         cout << "The ship was sunk!" << endl;
@@ -118,12 +119,7 @@ void printFleet(ship myFleet[]) {
     // prints the locations of all the ships and whether they are sunk
     
     for (int i = 0; i < 6; ++i) {
-        cout << "The ship is at: " << myFleet[i].loc.x  << myFleet[i].loc.y << endl;
-        cout << "Status of ship: ";
-        if (myFleet[i].sunk == 0) //thissss right here what am I doing
-            cout << "The ship is still alive!" << endl;
-        else
-            cout << "The ship was sunk!" << endl;
+        printShip(myFleet[i]);
     }
 }
 
