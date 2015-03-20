@@ -168,6 +168,6 @@ location fire() {
 
  
  
-void sink(ship &myShip) {
+void sink(ship myShip) {
     myShip.sunk = true;
 }

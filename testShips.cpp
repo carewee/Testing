@@ -30,7 +30,6 @@ int main(){
     
 
 //     checking ship functions
-//
     
 
      ship myShip;
@@ -51,7 +50,6 @@ int main(){
 
     // checking fleet functions
 
-    
 
      ship myFleet[FLEET_SIZE];
      
