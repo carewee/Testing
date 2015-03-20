@@ -91,11 +91,10 @@ void deploy(ship myFleet[]) {
         location mySpot = pick();
         int tmp = check(&myFleet[FLEET_SIZE], mySpot);
         if (tmp == -1) {
-            myFleet[tmp] = {mySpot};
+            myFleet[i].loc = mySpot;
             myFleet[i].sunk = false;
             ++i;
         }
-    // !! STILL NEED TO ADD STATUS OF THE SHIP BEING "not sunk" !!
     }
  }
 
