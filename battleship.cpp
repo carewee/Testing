@@ -3,6 +3,8 @@
 // Functions
 
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 #include "battleship.h"
 
 
@@ -21,7 +23,7 @@ bool match(ship myShip, location mySpot){
  }
 
 
-int check(ship myFleet[], location mySpot){
+int check(const ship myFleet[], location mySpot){
     // returns the index of element of the array
     // that matches the location
     // returns -1 if none do
@@ -115,7 +117,7 @@ void printShip(ship myShip) {
         }
 
 
-void printFleet(ship myFleet[]) {
+void printFleet(ship const myFleet[]) {
     // prints the locations of all the ships and whether they are sunk
     
     for (int i = 0; i < 6; ++i) {
@@ -129,7 +131,7 @@ void printFleet(ship myFleet[]) {
 // BATTLE FUNCTIONS
 
  
-bool operational(ship myFleet[]) {
+bool operational(ship const myFleet[]) {
     // returns true if at least one ship in the array is not sunk
 
     for (int i = 0; i < 6; ++i) {
@@ -150,7 +152,7 @@ location fire() {
 }
 
  
-void sink(ship myShip) {
+void sink(ship& myShip) {
     // sets "sunk" member variable of the ship to true
     
     myShip.sunk = true;
